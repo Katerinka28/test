@@ -1,0 +1,159 @@
+// $c ?= {}
+
+// $c.white = #fff
+// $c.violet = violet
+// $c.aquamarine = aquamarine
+// $c.blue--light = lightblue
+// $c.cyan = cyan
+// $c.yellow = yellow
+// $c.pink = magenta
+// $c.lavender = #a9a3f0
+
+
+
+// body 
+//   ma 0
+// html 
+//   box-sizing border-box
+//   font-size 10px
+// .loader 
+//   bg linear-gradient(#73e2fe, #2c90fc)
+//   pos relative
+//   min-h 300px 
+//   overflow: hidden
+//   h 100%
+// .toggler 
+
+//   &-lines
+//     z-index 5
+//     w 30px 
+//     d flex
+//     ai center 
+//     jc center 
+//     f-dir column
+//     pos absolute 
+//     left 20px 
+//     top 20px
+//     cursor pointer
+//     tr 0.5s
+//     &__line 
+//       w 100%
+//       bg-color: $c.white 
+//       h 2px
+//       ma 10px 0
+//     &:before, &:after 
+//       content ''
+//       w 50%
+//       d block
+//       bg-color: $c.white 
+//       tr 0.5s
+//       h 2px
+//     &:before
+//       align-self flex-end
+//     &:after 
+//       align-self flex-start
+//     &:hover 
+//       &::before 
+//         w 100%
+//         tr 0.5s 
+//       &::after
+//         w 100%
+//         tr 0.5s
+//   &-rounds 
+//     z-index 5
+//     pos absolute 
+//     right 20px 
+//     top 20px    
+//     &__dot 
+//       bg: $c.white 
+//       w 5px 
+//       h 5px 
+//       br-radius 100%
+//       mb 7px
+// .info 
+//   d flex
+//   ai center 
+//   jc flex-start
+//   f-dir column
+//   pos absolute
+//   bottom 20px 
+//   left 20px 
+
+//   &__temperature 
+//     fs 3rem
+//     color: $c.white 
+//     ma 0
+//   &__text 
+//     ma 0
+//     fs 2rem
+//     color: $c.white
+//     pt 20px 
+
+// .bubble 
+//   w 30vw
+//   h 30vw
+//   opacity 0.7
+//   br-radius 100%
+//   pos absolute
+//   opacity 0.5
+//   animation bubble 5s linear infinite
+//   &--violet
+//     top 0
+//     left 0
+//     transform translateX(-50%) translateY(-50%)
+//     bg: $c.violet
+//     animation-delay: 0.5s
+//     z-index 2
+//     left 10vw
+//   &--aquamarine
+//     z-index 1
+//     top 10vw
+//     animation-delay: 1s
+//     transform translateX(-50%) translateY(-50%)
+//     bg: linear-gradient(75deg, $c.aquamarine, $c.blue--light)  
+//   &--green 
+//     bottom -3vw
+//     animation-delay: 1.5s
+//     right 0
+//     transform translateX(50%)
+//     bg: $c.cyan
+//     z-index 1
+//   &--pink
+//     bottom 0
+//     animation-delay: 2s
+//     right -5vw
+//     transform translateX(50%)
+//     bg: linear-gradient(-30deg, $c.pink, $c.yellow)
+//     z-index 3
+//   &--lavender 
+//     z-index 2
+//     bottom 0
+//     animation-delay: 2.5s
+//     right 0
+//     transform translateX(50%) translateY(50%)
+//     bg: linear-gradient(-90deg, $c.lavender, $c.blue--light)
+
+// @keyframes bubble 
+//   0% 
+//     br-radius 100%
+//   20%
+//     br-radius 80% 60%   
+//   40%
+//     br-radius 40% 80%   
+//   60%
+//     br-radius 60% 60%   
+//   80%
+//     br-radius 80% 80%   
+//   100%
+//     br-radius 100%   
+
+form:invalid 
+  br 2px solid red
+.form-block 
+  &:invalid 
+    br 1px solid red
+  &__input:invalid
+    br 1px solid red 
+
+@import './progress'
+@import './poll'

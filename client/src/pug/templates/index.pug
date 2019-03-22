@@ -1,0 +1,36 @@
+include /../mixins/index.pug
+html
+  head 
+    link(rel="stylesheet", type="text/css", media="all", href="/static/css/style.css")
+  body
+    #app
+      test
+      pre {{ tests }}
+    +tag set tests = ["hello", "world", "!"]
+    +exp function('wp_head')
+    ul
+      +for('test in tests')
+        li: +exp test
+
+      +b.loader 
+        
+        +b.bubble--violet
+        +b.bubble--aquamarine
+        +b.bubble--pink
+        +b.bubble--green
+        +b.bubble--lavender
+        
+        .row 
+          +b.toggler-lines
+            +e.line
+          +b.toggler-rounds 
+            - for(let x=0; x<3; x++)
+              +e.dot
+        +b.info
+          +e.temperature.P 29 &deg;
+          +e.text.P Sunny
+
+
+
+    script(type="text/javascript", src="/static/js/vendor.js")
+    script(type="text/javascript", src="/static/js/main.js")

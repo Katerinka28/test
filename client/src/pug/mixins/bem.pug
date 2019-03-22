@@ -1,0 +1,12 @@
+include ./../../../node_modules/bemto.pug/bemto.pug
+-
+  set_bemto_settings({
+    prefix: '',
+    element: '__',
+    modifier: '--'
+  })
+mixin b-context(blockname)
+  if block
+    - bemto_chain.push([blockname])
+    - bemto_chain_contexts.push('block')
+    block

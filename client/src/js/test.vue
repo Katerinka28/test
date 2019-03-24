@@ -47,7 +47,8 @@ export default {
     }
   }, 
   mounted() {
-    let result = this.getDogPoints(this.dogsInfo, this.params)
+    // let result = this.getDogPoints(this.dogsInfo, this.params)
+    // console.log(result)
   },
   methods: {
     getDogPoints(dogs, params) {

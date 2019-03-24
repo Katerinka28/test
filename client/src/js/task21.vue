@@ -3,90 +3,26 @@
   .poll(ref='poll')
 </template>
 <script>
-import axios from 'axios'
+import service from './service'
 export default {
   data() {
     return {
-      data: {
-        root: {
-          title: "Some",
-          type: "question",
-          variants: [
-            {
-              title: "Yes",
-              type: "answer",
-              kind: "affirmative",
-              ref: "step-01"
-            },
-            {
-              title: "No",
-              type: "answer",
-              kind: "negative",
-              ref: "step-02"
-            },
-            {
-              title: "No",
-              type: "answer",
-              kind: "negative",
-              ref: "step-03"
-            }
-          ]
-        },
-        "step-01": {
-          title: "Finish",
-          type: "finish"
-        },
-        "step-02": {
-          title: "Other",
-          type: "question",
-          variants: [
-            {
-              title: "Yes",
-              type: "answer",
-              kind: "affirmative",
-              ref: "step-01"
-            },
-            {
-              title: "No",
-              type: "answer",
-              kind: "negative",
-              ref: "step-03"
-            },
-            
-          ]
-        },
-        "step-03": {
-          title: "additional",
-          type: "question",
-          variants: [
-            {
-              title: "Yeeeees",
-              type: "answer",
-              kind: "affirmative",
-              ref: "step-04"
-            },
-            {
-              title: "Noooooo",
-              type: "answer",
-              kind: "negative",
-              ref: "step-04"
-            }
-          ]
-        },
-        "step-04": {
-          title: "Finish",
-          type: "finish"
-        },
-      },
+      data: {},
       initial: ''
     }
   },
-  mounted() {
-    this.initial = this.$refs.poll
-    this.createQuestion(this.data.root, this.initial)
-
+  async mounted() {
+    await this.getData().then(() => {
+      this.initial = this.$refs.poll
+      this.createQuestion(this.data.root, this.initial)
+    })
   },
   methods: {
+    async getData() {
+      let { data } = (await service().get('./json.html'))
+      console.log(data)
+      this.data = data
+    },
     createQuestion(question, parent=this.initial) {
       let wrapper = parent
       // if (question.type !== 'finish') {

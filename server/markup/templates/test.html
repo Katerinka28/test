@@ -5,8 +5,42 @@
   </head>
   <body>
     <div id="app">
+      <div id="poll"></div>
       <test></test>
+      <task05></task05>
+      <task08 :files="[&quot;gamestart.mp3&quot;, &quot;gamelost.wav&quot;]"></task08>
+      <task11></task11>
+      <task12></task12>
+      <task26></task26>
+      <div id="svg-chart" data-rates="[2, 80, 6, 20, 10]" data-step-width="20" data-colors="[&quot;red&quot;, &quot;magenta&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;skyblue&quot;]"></div>
+      <canvas id="canvas" data-rates="[20, 8, 15, 20, 10]" data-step-width="20" data-colors="[&quot;red&quot;, &quot;magenta&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;skyblue&quot;]"></canvas>
+      <form class="form">
+        <fieldset class="form-block"><input class="form-block__input" type="text" required="required" minlength="2" name="name"/><input class="form-block__input" type="text" required="required" minlength="2" name="surname"/>
+        </fieldset>
+        <fieldset class="form-block"><input class="form-block__input" type="email" required="required" name="email"/><input class="form-block__input" type="date" required="required" name="date"/>
+        </fieldset>
+        <button class="button" type="submit">CHECK    
+        </button>
+      </form>
     </div>
+    <div class="player"> 
+      <audio class="audio" src="">
+      </audio>
+    </div>
+    <table class="table">
+      <thead class="table__head">
+        <tr class="table__tr"> 
+          <th class="table__th">
+          </th>
+        </tr>
+      </thead>
+      <tbody class="table__body">
+        <tr class="table__tr">
+          <td class="table__td">   
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <script type="text/javascript" src="/static/js/vendor.js"></script>
     <script type="text/javascript" src="/static/js/main.js"></script>
   </body>

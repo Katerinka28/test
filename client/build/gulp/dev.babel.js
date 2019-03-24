@@ -41,7 +41,7 @@ let templates = new Pug({
   basedir: `${p.src.pug}templates/`,
   glob: template_src,
   dest: p.dest.pug,
-  extension: '.twig',
+  extension: '.html',
 })
 
 

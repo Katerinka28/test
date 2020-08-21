@@ -1,14 +1,14 @@
 version: '3'
 
 services:
-  frontend:
-    build: ./client
-    command: bash -c "npm run dev"
+  # frontend:
+  #   build: ./client
+  #   command: bash -c "npm run dev"
 
-    volumes:
-      - .:/code
-      - ./client:/code/client
-      - node_modules:/code/client/node_modules
+  #   volumes:
+  #     - .:/code
+  #     - ./client:/code/client
+  #     - node_modules:/code/client/node_modules
 
 
   cache:
@@ -41,7 +41,7 @@ services:
       - DJANGO_CACHE_URL=redis://cache:6379
       - CELERY_BROKER_URL=redis://cache:6379
     ports:
-      - 8888:8000
+      - 8889:8000
     volumes:
       - .:/code
       - ./server:/code/server

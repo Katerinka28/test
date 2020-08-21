@@ -1,0 +1,14 @@
+body 
+  bg: red
+
+  //  DEPRECATION WARNING: Passing a string to call() is deprecated and will be illegal
+// [0] in Dart Sass 2.0.0. Use call(get-function(ease-in-out-sine)) instead.
+// [0] 
+// [0]    ╷
+// [0] 22 │   $position-brightness: call(map-get($specs, brightness-curve), 1 - $position
+.test 
+  bg: red
+
+.other 
+  @extend .test
+  

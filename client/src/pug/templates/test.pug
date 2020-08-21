@@ -4,49 +4,54 @@ html
     link(rel="stylesheet", type="text/css", media="all", href="/static/css/style.css")
   body
     #app
-      #poll
-      //- task21
-      test
-      task05
-      task08(:files='["gamestart.mp3", "gamelost.wav"]')
-      task11
-      task12
-      task26
-      #svg-chart(data-rates='[2, 80, 6, 20, 10]', 
-                  data-step-width='20', 
-                  data-colors='["red", "magenta", "green", "blue", "skyblue"]')
-      canvas#canvas(data-rates='[20, 8, 15, 20, 10]', 
-                  data-step-width='20', 
-                  data-colors='["red", "magenta", "green", "blue", "skyblue"]')
-      +b.form.FORM
-        +b.form-block.FIELDSET
-          +e.input.INPUT(type='text',
-                        required 
-                        minlength='2'
-                        name='name')
-          +e.input.INPUT(type='text',
-                        required
-                        minlength='2'
-                        name='surname')
-        +b.form-block.FIELDSET
-          +e.input.INPUT(type='email',
-                        required
-                        name='email')
-          +e.input.INPUT(type='date',
-                        required
-                        name='date')
-        +b.button.BUTTON(type='submit') CHECK    
-    +b.player 
-      +b.audio.AUDIO(src='')
+      +b.g-row--space_xl
+        +b.g-cols.g-cell
+        +b.g-cols.g-cell
+        vue-sidebar
 
-    //- +b.poll
-    //-   +e.question(:class='{"default":}')
-    +b.table.TABLE
-      +e.head.THEAD
-        +e.tr.TR  
-          +e.th.TH
-      +e.body.TBODY
-        +e.tr.TR
-          +e.td.TD    
+
+      //- task21
+    //-   task21
+    //-   //- task05
+    //-   //- task08(:files='["gamestart.mp3", "gamelost.wav"]')
+    //-   //- task11
+    //-   //- task12
+    //-   //-  task26
+    //-   #svg-chart(data-rates='[2, 80, 6, 20, 10]', 
+    //-               data-step-width='20', 
+    //-               data-colors='["red", "magenta", "green", "blue", "skyblue"]')
+    //-   canvas#canvas(data-rates='[20, 8, 15, 20, 10]', 
+    //-               data-step-width='20', 
+    //-               data-colors='["red", "magenta", "green", "blue", "skyblue"]')
+    //-   +b.form.FORM
+    //-     +b.form-block.FIELDSET
+    //-       +e.input.INPUT(type='text',
+    //-                     required 
+    //-                     minlength='2'
+    //-                     name='name')
+    //-       +e.input.INPUT(type='text',
+    //-                     required
+    //-                     minlength='2'
+    //-                     name='surname')
+    //-     +b.form-block.FIELDSET
+    //-       +e.input.INPUT(type='email',
+    //-                     required
+    //-                     name='email')
+    //-       +e.input.INPUT(type='date',
+    //-                     required
+    //-                     name='date')
+    //-     +b.button.BUTTON(type='submit') CHECK    
+    //- +b.player 
+    //-   +b.audio.AUDIO(src='')
+
+    //- //- +b.poll
+    //- //-   +e.question(:class='{"default":}')
+    //- +b.table.TABLE
+    //-   +e.head.THEAD
+    //-     +e.tr.TR  
+    //-       +e.th.TH
+    //-   +e.body.TBODY
+    //-     +e.tr.TR
+    //-       +e.td.TD    
     script(type="text/javascript", src="/static/js/vendor.js")
     script(type="text/javascript", src="/static/js/main.js")

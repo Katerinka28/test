@@ -1,11 +1,13 @@
 from django.conf import settings
 from django.conf.urls import url, include
+from django.urls import path
 from django.contrib import admin
 from django.contrib.staticfiles.urls import static
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    path('blog/', include('apps.blog.urls')),
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:

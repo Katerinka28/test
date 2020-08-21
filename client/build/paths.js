@@ -16,7 +16,7 @@ export var P = global.P = {
     js:     `${R.src}js/`,
 
     html:   `${R.src}html/`,
-    stylus: `${R.src}stylus/`,
+    sass: `${R.src}sass/`,
     pug:    `${R.src}pug/`,
     css:    `${R.src}css/`,
 
@@ -31,7 +31,7 @@ export var P = global.P = {
     js:     `${R.dest}static/js/`,
 
     html:   `${R.dest}templates/`,
-    stylus: `${R.dest}static/css/`,
+    sass: `${R.dest}static/css/`,
     pug:    `${R.dest}templates/`,
     css:    `${R.dest}static/css/`,
 

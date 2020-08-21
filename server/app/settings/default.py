@@ -39,6 +39,7 @@ ALLOWED_HOSTS: list = []
 
 PROJECT_APPS = [
     'markup',
+
 ]
 
 INSTALLED_APPS = PROJECT_APPS + [
@@ -53,6 +54,7 @@ INSTALLED_APPS = PROJECT_APPS + [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'apps.blog'
 ]
 
 MIDDLEWARE = [

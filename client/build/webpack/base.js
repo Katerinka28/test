@@ -48,14 +48,19 @@ module.exports = {
 
   module: {
     rules: [
+
       {
-        test: /\.(js|vue|es6)$/i,
-        loader: 'eslint-loader',
         enforce: 'pre',
+        test: /\.(js|vue|es6)$/i,
         exclude: [resolve('node_modules')],
-        options: {
-          formatter: require('eslint/lib/formatters/codeframe')
-        }
+        use: [
+          {
+            loader: 'eslint-loader',
+            options: {
+              formatter: require('eslint/lib/cli-engine/formatters/stylish')
+            },
+          },
+        ],
       },
       {
         test: /\.styl$/i,
@@ -79,11 +84,12 @@ module.exports = {
         }),
       },
       {
-        test: /\.styl$/i,
+        test: /\.sass$/i,
         loader: cssExtractor.extract({
-          use: 'css-loader!postcss-loader!stylus-loader',
+          use: 'css-loader!postcss-loader!sass-loader',
         }),
       },
+      
       {
         test: /\.js$/i,
         loader: 'babel-loader',
@@ -136,7 +142,7 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: { plugins: require('../config/postcss').config },
-        stylus: require('../config/stylus').config,
+        stylus: require('../config/sass').config,
       }
     }),
 

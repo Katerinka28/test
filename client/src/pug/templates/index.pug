@@ -1,36 +1,30 @@
 include /../mixins/index.pug
 html
   head 
+    link(href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200,900" rel="stylesheet")
     link(rel="stylesheet", type="text/css", media="all", href="/static/css/style.css")
   body
     #app
-      test
-      pre {{ tests }}
-    +tag set tests = ["hello", "world", "!"]
-    +exp function('wp_head')
-    ul
-      +for('test in tests')
-        li: +exp test
+      block content
+      +for('post in object_list')
+        vue-accordion(
+          id=exp('loop.index')
+        )
+          template(#default='{ style: { icon }, toggleActive }')
+            div(
+              id=exp('loop.index')
+            )
+              +b.head(
 
-      +b.loader 
-        
-        +b.bubble--violet
-        +b.bubble--aquamarine
-        +b.bubble--pink
-        +b.bubble--green
-        +b.bubble--lavender
-        
-        .row 
-          +b.toggler-lines
-            +e.line
-          +b.toggler-rounds 
-            - for(let x=0; x<3; x++)
-              +e.dot
-        +b.info
-          +e.temperature.P 29 &deg;
-          +e.text.P Sunny
-
-
+                @click='toggleActive'
+              )
+                h2: +exp post.title
+                p: +exp post.text
+                pre {{ icon }}
+              +b.body
+                +if('post.published_date')
+                  span: +exp post.published_date|date('D d M o')
+                a(href=url("'post_detail', pk=post.pk")) Read more 
 
     script(type="text/javascript", src="/static/js/vendor.js")
     script(type="text/javascript", src="/static/js/main.js")

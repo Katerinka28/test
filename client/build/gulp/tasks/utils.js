@@ -23,13 +23,13 @@ export const errorHandler = function (err) {
 
   // Notification
   notifier.notify({
-    title: `${extName.slice(1)} (${err.plugin}) error:`,
+    title: `🙄️ ${extName.slice(1)} (${err.plugin}) error:`,
     message: `${errorPosition} ${pathName} \n ${err.message}`,
     sound: true,
   })
 
   // Log to console
-  gutil.log(gutil.colors.red('Error'), err.message)
+  gutil.log(gutil.colors.red('Error 🙄️ '), err.message)
 
   try {
     this.emit('end')

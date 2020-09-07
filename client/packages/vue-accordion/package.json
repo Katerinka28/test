@@ -1,6 +1,6 @@
 {
   "name": "@aspectus/vue-accordion",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "scripts": {
     "serve": "vue-cli-service example example/main.js",
     "build": "vue-cli-service rollup",
@@ -9,8 +9,29 @@
     "prepublishOnly": "yarn lint && yarn test:unit && yarn build"
   },
   "main": "src/main.js",
-  "module": "dist/vue-accordion.esm.js",
+  "module": "src/main.js",
   "unpkg": "dist/vue-accordion.umd.min.js",
+  "bugs": {
+    "url": "https://gitlab.com/preusx/aspectus/issues"
+  },
+  "homepage": "https://preusx.gitlab.io/aspectus/packages/vue-accordion.html",
+  "author": "Kate Dmytrieeva <katuxadmitr@gmail.com>",
+  "contrbutors": [
+    "Alex Tkachenko <preusx.dev@gmail.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/preusx/aspectus.git"
+  },
+  "keywords": [
+    "vue",
+    "aspectus",
+    "utility",
+    "accordionlations",
+    "django",
+    "i18n"
+  ],
   "files": [
     "dist/vue-accordion.common.js",
     "dist/vue-accordion.umd.min.js",
@@ -38,7 +59,6 @@
     "@vue/cli-service": "^4.1.2",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.3",
-    "core-js": "^3.6.4",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.1.2",
     "lint-staged": "^10.0.3",
@@ -59,6 +79,9 @@
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "sideeffects": false,
   "style": "dist/vue-accordion.css"

@@ -84,7 +84,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.sass$/i,
+        test: /\.s[ac]ss$/i,
         loader: cssExtractor.extract({
           use: 'css-loader!postcss-loader!sass-loader',
         }),

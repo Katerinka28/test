@@ -21,6 +21,11 @@ env = environ.Env(DEBUG=(bool, False),)
 
 env_file = str(BASE_ROOT.parent / '.env')
 env.read_env(env_file)
+# ROSETTA
+ROSETTA_SHOW_AT_ADMIN_PANEL = True
+ROSETTA_MESSAGES_PER_PAGE = 10
+ROSETTA_REQUIRES_AUTH = True
+ROSETTA_LOGIN_URL = '/'
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,6 +43,7 @@ ALLOWED_HOSTS: list = []
 # Application definition
 
 PROJECT_APPS = [
+    'apps.blog',
     'markup',
 
 ]
@@ -54,11 +60,13 @@ INSTALLED_APPS = PROJECT_APPS + [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'apps.blog'
+    'vuejs_translate',
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -115,6 +123,7 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
                 'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
                 'django.contrib.auth.context_processors.auth',
@@ -125,6 +134,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
+LOCALE_PATHS = (
+    BASE_ROOT / 'locale',
+)
 
 # Database
 

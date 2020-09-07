@@ -1,5 +1,4 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
@@ -8,7 +7,6 @@ name = "pypi"
 python_version = '3.7'
 
 [dev-packages]
-
 django-debug-toolbar = "*"
 freezegun = "*"
 coverage = "*"
@@ -20,19 +18,21 @@ pydocstyle = "*"
 ipython = "*"
 
 [packages]
-
 pillow = "*"
-"psycopg2" = "*"
+"psycopg2-binary" = "*"
 "jinja2" = "*"
-django = "==2.1"
+django = "==2.2"
 unidecode = "*"
 celery = "*"
 django-jinja = "*"
-
+monobank="*"
 django-model-utils = "*"
 django-rosetta = "*"
 django-redis = "*"
-django-composable-views = {git = "https://gitlab.com/preusx/django-composable-views.git", ref = "0.1.0"}
+django-composable-views = {git = "https://gitlab.com/preusx/django-composable-views.git",ref = "0.1.0"}
 django-environ = "*"
-gunicorn = {version = "*", sys_platform = "== 'linux'"}
-gevent = {version = "*", sys_platform = "== 'linux'"}
+gunicorn = {version = "*",sys_platform = "== 'linux'"}
+gevent = {version = "*",sys_platform = "== 'linux'"}
+pydub = "*"
+django-vuejs-translate = {git = "https://gitlab.com/cyberbudy/django-vuejs-translate"}
+django-filter = "*"

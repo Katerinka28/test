@@ -3,28 +3,73 @@ html
   head 
     link(href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200,900" rel="stylesheet")
     link(rel="stylesheet", type="text/css", media="all", href="/static/css/style.css")
+    link(rel="stylesheet", type="text/css", media="all", href="/static/js/vendor.js.css")
+    script(
+      src='https://unpkg.com/wavesurfer.js'
+    )
+    script(src="https://cdn.amcharts.com/lib/4/core.js")
+    script(src="https://cdn.amcharts.com/lib/4/charts.js")
+    script(src="https://cdn.amcharts.com/lib/4/plugins/wordCloud.js")
+    script(src="https://cdn.amcharts.com/lib/4/themes/dataviz.js")
+    script(src="https://cdn.amcharts.com/lib/4/themes/animated.js")
+    script.
+      window.language = 'ru'
+      window.django = {
+       catalog: {}
+      }
+      
   body
     #app
       block content
+      test
+      p: +trans hello
+
+      div#chart
+      div#chart2
+      div#waveform
+      #chartdiv
+      div(style='width:300px')
+        date-range-picker(
+          ref='picker',
+          autocomplete='off'
+          :locale-data="{ firstDay: 1, format: 'DD.MM.YYYY' }"
+          :autoApply="false"
+          :single-date-picker='false'
+          v-model="dateRange"
+        )     
+          //- template(
+          //-   v-slot:input='{ startDate, endDate, ranges, text }'
+          //- )
+          //-   p [[ startDate ]] [[ endDate ]] [[ text ]]
+          //-   input(
+          //-     :value='text'
+          //-   )
       +for('post in object_list')
         vue-accordion(
           id=exp('loop.index')
         )
-          template(#default='{ style: { icon }, toggleActive }')
-            div(
-              id=exp('loop.index')
-            )
-              +b.head(
-
-                @click='toggleActive'
+          template(#default='{ style: { icon, height }, toggleActive, collapse }')
+            vue-clickaway(:do='collapse')
+              div(
+                id=exp('loop.index')
               )
-                h2: +exp post.title
-                p: +exp post.text
-                pre {{ icon }}
-              +b.body
-                +if('post.published_date')
-                  span: +exp post.published_date|date('D d M o')
-                a(href=url("'post_detail', pk=post.pk")) Read more 
+                +b.tt-accordion
+                  +b.head(
 
+                    @click='toggleActive'
+                  )
+                    h2: +exp post.title
+                    pre [[ icon ]]
+                  +e.description(
+                    :style='{maxHeight: height}',
+                  ) 
+                    +b.body
+                      p: +exp post.text 
+                      p: +exp post.published_date
+                      +if('post.published_date')
+                        span: +exp post.published_date|date('D d M o')
+                      a(href=url("'post_detail', pk=post.pk")) Read more 
+
+    script(type="text/javascript", src!=exp('hashed_translation_url()'))
     script(type="text/javascript", src="/static/js/vendor.js")
     script(type="text/javascript", src="/static/js/main.js")

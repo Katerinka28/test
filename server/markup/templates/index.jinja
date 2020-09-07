@@ -3,25 +3,58 @@
   <head> 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="all" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/static/js/vendor.js.css">
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/plugins/wordCloud.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script>
+      window.language = 'ru'
+      window.django = {
+       catalog: {}
+      }
+      
+    </script>
   </head>
   <body>
-    <div id="app">{% for post in object_list %} 
+    <div id="app">
+      <test></test>
+      <p>{% trans  %} hello {% endtrans %}
+      </p>
+      <div id="chart"></div>
+      <div id="chart2"></div>
+      <div id="waveform"></div>
+      <div id="chartdiv"></div>
+      <div style="width:300px">
+        <date-range-picker ref="picker" autocomplete="off" :locale-data="{ firstDay: 1, format: 'DD.MM.YYYY' }" :autoApply="false" :single-date-picker="false" v-model="dateRange">    </date-range-picker>
+      </div>{% for post in object_list %} 
       <vue-accordion id="{{ loop.index }}">
-        <template #default="{ style: { icon }, toggleActive }">
-          <div id="{{ loop.index }}">
-            <div class="head" @click="toggleActive">
-              <h2>{{post.title}}
-              </h2>
-              <p>{{post.text}}
-              </p>
-              <pre>{{ icon }}</pre>
+        <template #default="{ style: { icon, height }, toggleActive, collapse }">
+          <vue-clickaway :do="collapse">
+            <div id="{{ loop.index }}">
+              <div class="tt-accordion">
+                <div class="head" @click="toggleActive">
+                  <h2>{{post.title}}
+                  </h2>
+                  <pre>[[ icon ]]</pre>
+                </div>
+                <div class="tt-accordion__description" :style="{maxHeight: height}"> 
+                  <div class="body">
+                    <p>{{post.text }}
+                    </p>
+                    <p>{{post.published_date}}
+                    </p>{% if post.published_date %} <span>{{post.published_date|date('D d M o')}}</span> {% endif %}<a href="{{ url( 'post_detail', pk=post.pk ) }}">Read more </a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="body">{% if post.published_date %} <span>{{post.published_date|date('D d M o')}}</span> {% endif %}<a href="{{ url( 'post_detail', pk=post.pk ) }}">Read more </a>
-            </div>
-          </div>
+          </vue-clickaway>
         </template>
       </vue-accordion> {% endfor %}
     </div>
+    <script type="text/javascript" src="{{ hashed_translation_url() }}"></script>
     <script type="text/javascript" src="/static/js/vendor.js"></script>
     <script type="text/javascript" src="/static/js/main.js"></script>
   </body>

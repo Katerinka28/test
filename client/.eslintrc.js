@@ -10,8 +10,19 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    semi: 'off'
+    semi: 'off',
+    'import/extensions': 'off',
+    'import/prefer-default-export': 'off',
+    'arrow-body-style': ["error", "as-needed"],
+    'no-param-reassign': ["error", { "props": false }]
   },
+  // settings: {
+  //   'import/resolver': {
+  //     webpack: {
+  //       config: 'build/webpack/base.js'
+  //     }
+  //   }
+  // },
   parserOptions: {
     parser: 'babel-eslint',
   },

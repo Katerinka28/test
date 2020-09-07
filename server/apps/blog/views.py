@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Post
 from django.shortcuts import get_object_or_404
 
+
 # Create your views here.
 
 class PostsView(ListView):

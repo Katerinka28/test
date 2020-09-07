@@ -1,0 +1,64 @@
+{
+  "name": "@aspectus/vue-clickaway",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "vue-cli-service example example/main.js",
+    "build": "vue-cli-service rollup",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service plugin-lint",
+    "prepublishOnly": "yarn lint && yarn test:unit && yarn build"
+  },
+  "main": "src/main.js",
+  "module": "dist/vue-clickaway.esm.js",
+  "unpkg": "dist/vue-clickaway.umd.min.js",
+  "files": [
+    "dist/vue-clickaway.common.js",
+    "dist/vue-clickaway.umd.min.js",
+    "dist/vue-clickaway.umd.js",
+    "dist/vue-clickaway.css",
+    "src",
+    "dist/vue-clickaway.esm.js"
+  ],
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@operarius/git-hooks": "^0.3.0",
+    "@operarius/postcss-config": "^0.3.6",
+    "@operarius/vue-cli-plugin-eslint": "^0.3.4",
+    "@operarius/vue-cli-plugin-git-hooks": "^0.3.4",
+    "@operarius/vue-cli-plugin-plugin": "^0.3.6",
+    "@operarius/vue-cli-plugin-postcss": "^0.3.6",
+    "@operarius/vue-cli-plugin-rollup": "^0.3.7",
+    "@operarius/vue-eslint-config": "^0.3.0",
+    "@vue/cli-plugin-babel": "^4.1.2",
+    "@vue/cli-plugin-eslint": "^4.1.2",
+    "@vue/cli-plugin-unit-jest": "^4.1.2",
+    "@vue/cli-service": "^4.1.2",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.1.2",
+    "lint-staged": "^10.0.3",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged && operarius-git-hooks pre-commit",
+    "pre-push": "operarius-git-hooks pre-push",
+    "post-commit": "operarius-git-hooks post-commit",
+    "post-checkout": "operarius-git-hooks post-checkout",
+    "post-merge": "operarius-git-hooks post-merge",
+    "commit-msg": "operarius-git-hooks commit-msg"
+  },
+  "jsdelivr": "dist/vue-clickaway.umd.min.js",
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  },
+  "sideeffects": false,
+  "style": "dist/vue-clickaway.css"
+}
